@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'topics#index'
+  root '#index'
 
   get    '/auth/:provider'          => 'omniauth#auth',    as: :auth
   get    '/auth/:provider/callback' => 'sessions#create'
