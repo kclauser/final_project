@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :groups
+  resources :pages
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root '#index'
+  # root '#index'
+  root 'pages#show'
 
   get    '/auth/:provider'          => 'omniauth#auth',    as: :auth
   get    '/auth/:provider/callback' => 'sessions#create'

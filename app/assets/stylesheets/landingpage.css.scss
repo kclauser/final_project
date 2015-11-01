@@ -1,0 +1,43 @@
+/*
+*= require font-awesome
+*/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// body {
+//   background-image: url("ihavenoidea.jpg")
+// }
+body {
+  background-color: #F1F5F7;
+}
+
+.landing-page-jumbotron{
+  margin: 0;
+  background-image: image-url('earth.jpg');
+  background-size: cover;
+  min-height: 500px;
+  color: #FFFFFF;
+}
+
+.landing-page-title{
+  font-color: #FFFFFF;
+}
+
+.landing-page-title p {
+  text-align: center;
+  font-size: 5em;
+  width: 58%;
+  margin: auto;
+}
+
+.landing-page-description{
+  font-color: #FFFFFF;
+  margin: 0 90px;
+  font-size: 1.6em;
+  text-align: center;
+}
+
+.sign-in-button{
+  margin: auto;
+}

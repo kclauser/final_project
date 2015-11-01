@@ -1,10 +1,9 @@
 class PagesController < ApplicationController
-  #layout false
+  layout false
 
-  def home
+  def show
   end
 
   def about
   end
-  
 end
