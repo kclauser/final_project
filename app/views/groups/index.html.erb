@@ -24,27 +24,45 @@
 </nav>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Groups</h1>
+<h1 class="groups-title">Groups Dashboard</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @groups.each do |group| %>
+  <div class="col-me-4 col-centered group-container">
+    <div class="group-image">
+    <%= image_tag('ihavenoidea.jpg') %>
+    </div>
+    <h2 class="group-name-display"><%= link_to group.name, group_path(group) %></h2>
+    <%= link_to 'Show', group %>
+    <%= link_to 'Edit', edit_group_path(group) %>
+    <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
 
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td><%= group.name %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @groups.each do |group| %>
+  <div class="col-me-4 col-centered group-container">
+    <div class="media">
+      <div class="media-left">
+        <%= image_tag(('ihavenoidea.jpg'), :class => "media-object") %>
+      </div>
+    </div>
+    <div class="media-body">
+    <h2 class="media-heading"><%= link_to group.name, group_path(group) %></h2>
+      <%= link_to 'Show', group %>
+      <%= link_to 'Edit', edit_group_path(group) %>
+      <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+<% end %>
+
+<div class="media">
+  <div class="media-left">
+    <%= image_tag(('ihavenoidea.jpg'), :class => "media-object") %>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">Media heading</h4>
+    ...
+  </div>
+</div>
 
 <br>
 

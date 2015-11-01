@@ -14,3 +14,27 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ body {
+   background-color: #F1F5F7;
+ }
+
+.groups-title{
+  font-size: 3em;
+  text-align: center;
+}
+
+.group-container{
+  border: 1px;
+  border-style: solid;
+  margin-bottom: 50px;
+}
+
+.group-image{
+
+}
+
+.group-name-display{
+  font-size: 4em;
+
+}
