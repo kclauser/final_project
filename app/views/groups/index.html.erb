@@ -17,7 +17,7 @@
         <li><a href="#">Link</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Login", signin_path, class: "btn btn-primary" %></li>
+        <li><%= link_to 'groups', groups_path %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -38,31 +38,6 @@
   </div>
 <% end %>
 
-<% @groups.each do |group| %>
-  <div class="col-me-4 col-centered group-container">
-    <div class="media">
-      <div class="media-left">
-        <%= image_tag(('ihavenoidea.jpg'), :class => "media-object") %>
-      </div>
-    </div>
-    <div class="media-body">
-    <h2 class="media-heading"><%= link_to group.name, group_path(group) %></h2>
-      <%= link_to 'Show', group %>
-      <%= link_to 'Edit', edit_group_path(group) %>
-      <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
-  </div>
-<% end %>
-
-<div class="media">
-  <div class="media-left">
-    <%= image_tag(('ihavenoidea.jpg'), :class => "media-object") %>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">Media heading</h4>
-    ...
-  </div>
-</div>
 
 <br>
 

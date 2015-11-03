@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  get 'calendars/index'
+
+  get 'calendars/show'
+
   resources :groups
   resources :pages
+  resources :calendars
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

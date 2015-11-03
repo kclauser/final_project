@@ -5,18 +5,15 @@ require 'google/api_client/auth/storage'
 require 'google/api_client/auth/storages/file_store'
 require 'fileutils'
 require 'active_support/all'
-require 'awesome_print'
-
-APPLICATION_NAME = 'Google Calendar API Ruby Quickstart'
-CLIENT_SECRETS_PATH = 'client_secret.json'
-CREDENTIALS_PATH = File.join(Dir.home, '.credentials', "calendar-ruby-quickstart.json")
-SCOPE = 'https://www.googleapis.com/auth/calendar.readonly'
-
 
 class BusyTimeFinder
-  # Take an array of people's email addresses
-  def initialize()
+  APPLICATION_NAME = 'Google Calendar API Ruby Quickstart'
+  CLIENT_SECRETS_PATH = 'client_secret.json'
+  CREDENTIALS_PATH = File.join(Dir.home, '.credentials', "calendar-ruby-quickstart.json")
+  SCOPE = 'https://www.googleapis.com/auth/calendar.readonly'
 
+  def initialize(emails)
+    @emails = emails
   end
 
   ##
@@ -40,7 +37,6 @@ class BusyTimeFinder
         :client_secret => app_info.client_secret,
         :scope => SCOPE})
       auth = flow.authorize(storage)
-      puts "Credentials saved to #{CREDENTIALS_PATH}" unless auth.nil?
     end
     auth
   end
@@ -48,7 +44,7 @@ class BusyTimeFinder
   # TODO: make this a method called 'busy_times' that returns the result
   #       but uses the array of email addresses we got in the constructor
 
-  def busy_times
+  def busy_times(start_time, end_time)
     # Initialize the API
     client = Google::APIClient.new(:application_name => APPLICATION_NAME)
     client.authorization = authorize
@@ -58,20 +54,31 @@ class BusyTimeFinder
       api_method: service.freebusy.query,
       headers: { 'Content-Type' => 'application/json'},
       body: JSON.dump({
-                      items: [
-                        { "id" => "kclauser@gmail.com" },
-                        { "id" => "gavin@theironyard.com" }
-                      ],
-                      timeMin: Time.now.utc.iso8601,
-                      timeMax: 30.days.from_now.utc.iso8601,
+                      items: @emails.map { |email| { "id" => email } }
+                      timeMin: start_time,
+                      timeMax: end_time,
+                      # timeMin: Time.now.utc.iso8601,
+                      # timeMax: 30.days.from_now.utc.iso8601,
                     })
     )
 
     return JSON.parse(raw_result.body)
   end
+
+  def free_times(start_time, end_time)
+    # Takes the start and end dates and figures out all the
+    # available free times
+
+    # Maybe more logic goes here, dunno yet
+  end
 end
 
-finder = BusyTimeFinder.new(["gavin@theironyard.com", "kclauser@gmail.com"])
+# example usage -- some code like this will exist
+# on the action for the page that shows the available calendar
+@group = Group.find(1)
 
-times = finder.busy_times
-ap times
+emails_from_database = @group.users.pluck(:email)
+finder = BusyTimeFinder.new(emails_from_database)
+@busy_times = finder.busy_times
+@free_times = finder.free_times
+# Mark either busy or free times on our html calendar

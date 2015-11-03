@@ -3,6 +3,8 @@
   <head>
     <title></title>
     <%= stylesheet_link_tag 'landingpage', media: 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
   </head>
   <body>
     <!-- this is where yield might go if this were a layout instead -->
@@ -23,10 +25,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Link</a></li>
+            <li><%= link_to 'Calendar', calendars_index_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Login", signin_path, class: "btn btn-primary" %></li>
+            <li>
+              <% if current_user %>
+              <%= link_to 'Log Out', signout_path, method: :delete, data: { confirm: "Are you sure?" } %>
+              <% else %>
+              <%= link_to 'Login with Google', auth_path(provider: 'google_oauth2') %>
+              <% end %>
+            </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

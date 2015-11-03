@@ -8,6 +8,11 @@
 </head>
 <body>
 
+  <% if current_user %>
+    <%= link_to 'logout', signout_path, method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+
+
 <%= yield %>
 
 </body>

@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-
+  before_action :ensure_current_user
+  
   # GET /groups
   # GET /groups.json
   def index
