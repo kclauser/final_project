@@ -17,7 +17,11 @@
         <li><a href="#">Link</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Login", signin_path, class: "btn btn-primary" %></li>
+        <li><% if current_user %>
+        <%= link_to 'Log Out', signout_path, method: :delete, data: { confirm: "Are you sure?" } %>
+        <% else %>
+        <%= link_to 'Login with Google', auth_path(provider: 'google_oauth2') %>
+        <% end %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

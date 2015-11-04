@@ -17,28 +17,25 @@
         <li><a href="#">Link</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'groups', groups_path %></li>
+        <li><% if current_user %>
+        <%= link_to 'Log Out', signout_path, method: :delete, data: { confirm: "Are you sure?" } %>
+        <% else %>
+        <%= link_to 'Login with Google', auth_path(provider: 'google_oauth2') %>
+        <% end %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <p id="notice"><%= notice %></p>
 
-<h1 class="groups-title">Groups Dashboard</h1>
+<span><%= link_to 'New Group', new_group_path %></span><h1 class="groups-title">Groups Dashboard</h1>
 
-<% @groups.each do |group| %>
-  <div class="col-me-4 col-centered group-container">
-    <div class="group-image">
-    <%= image_tag('ihavenoidea.jpg') %>
-    </div>
-    <h2 class="group-name-display"><%= link_to group.name, group_path(group) %></h2>
-    <%= link_to 'Show', group %>
-    <%= link_to 'Edit', edit_group_path(group) %>
-    <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </div>
-<% end %>
+<%= render @groups %>
 
+<ul class="friendlist">
+  <% User.all.each do |user| %>
+    <li data-user-id="<%= user.id %>"><%= user.name %></li>
+  <% end %>
+</ul>
 
 <br>
-
-<%= link_to 'New Group', new_group_path %>
