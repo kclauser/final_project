@@ -8,4 +8,9 @@ class MembershipsController < ApplicationController
       @membership = @group.memberships.create(user: @user)
     end
   end
+
+  def destroy
+    @group = Group.find(params[:group_id])
+    @user  = User.find(params[:user_id])
+  end
 end

@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require jquery-ui
+ *= require font-awesome
  */
 
  @import "bootstrap-sprockets";
@@ -26,10 +27,10 @@
 }
 
 .group-container{
-  border: 1px;
-  border-style: solid;
+  // border: 1px;
+  // border-style: solid;
   margin-bottom: 50px;
-  height: 300px;
+  // height: 300px;
   overflow: auto;
 }
 
@@ -42,8 +43,13 @@
 }
 
 .friendlist{
-  border: 1px;
-  border-style: solid;
+  list-style: none;
+  // border: 1px;
+  // border-style: solid;
   // position:relative;
   // top: -1075px;
+}
+
+.member{
+  display: block;
 }

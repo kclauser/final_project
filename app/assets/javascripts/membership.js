@@ -25,4 +25,8 @@ $(function()
         console.log("dragging from " + user_id + " to " + group_id);
       }
   });
+
+  $(".member").on("click",function(e){
+    $.ajax('')
+  })
 })

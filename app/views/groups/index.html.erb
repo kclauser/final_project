@@ -18,27 +18,40 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><% if current_user %>
-        <%= link_to 'Log Out', signout_path, method: :delete, data: { confirm: "Are you sure?" } %>
-        <% else %>
-        <%= link_to 'Login with Google', auth_path(provider: 'google_oauth2') %>
-        <% end %></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<p id="notice"><%= notice %></p>
+          <%= link_to 'Log Out', signout_path, method: :delete, data: { confirm: "Are you sure?" } %>
+          <% else %>
+          <%= link_to 'Login with Google', auth_path(provider: 'google_oauth2') %>
+          <% end %></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <p id="notice"><%= notice %></p>
 
-<span><%= link_to 'New Group', new_group_path %></span><h1 class="groups-title">Groups Dashboard</h1>
+  <%= link_to 'New Group', new_group_path %><h1 class="groups-title">Groups Dashboard</h1>
 
-<%= render @groups %>
 
-<div class="sidebar col-md-4 friendlist">
-  <h2> Friends list</h2>
-  <ul>
-    <% User.all.each do |user| %>
-      <li data-user-id="<%= user.id %>"><%= user.name %></li>
-    <% end %>
-  </ul>
-</div>
 
-<br>
+  <div class="container">
+    <div class="row">
+      <div class="main col-xs-10">
+
+
+        <%= render @groups %>
+      </div>
+
+        <div class="sidebar col-xs-2">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Friends</h3>
+            </div>
+            <ul class="list-group friendlist">
+              <% User.all.each do |user| %>
+              <li class="list-group-item" data-user-id="<%= user.id %>"><%= user.name %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+    </div>
+  </div>
