@@ -35,9 +35,11 @@
   <div class="container">
     <div class="row">
       <div class="main col-xs-10">
-
-
-        <%= render @groups %>
+        <% @groups.each do |group| %>
+          <div class="panel panel-default col-centered group-container" data-group-id="<%= group.id %>">
+            <%= render group %>
+          </div>
+        <% end %>
       </div>
 
         <div class="sidebar col-xs-2">

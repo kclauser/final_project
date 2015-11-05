@@ -1,21 +1,21 @@
+<div class="group-image">
+  <%= image_tag('ihavenoidea.jpg') %>
+</div>
+<div class="panel-heading">
+  <h2 class="group-name-display"><%= link_to group.name, group_path(group) %></h2>
+</div>
+<div class="panel-body">
+  <p>Members</p>
+  <ul>
+    <% group.memberships.each do |membership| %>
+    <li>
+      <span class="fa fa-times delete-membership" data-membership-id="<%= membership.id %>"></span>
+      <%= membership.user.name %>
+    </li>
+    <% end %>
+  </ul>
 
-<div class="panel panel-default col-centered group-container" data-group-id="<%= group.id %>">
-  <div class="group-image">
-    <%= image_tag('ihavenoidea.jpg') %>
-  </div>
-  <div class="panel-heading">
-    <h2 class="group-name-display"><%= link_to group.name, group_path(group) %></h2>
-  </div>
-  <div class="panel-body">
-    <p>Members</p>
-    <ul>
-      <% group.memberships.each do |membership| %>
-      <li class="fa fa-times member"><%= membership.user.name %></li>
-      <% end %>
-    </ul>
-
-    <%= link_to 'Show', group %>
-    <%= link_to 'Edit', edit_group_path(group) %>
-    <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </div>
+  <%= link_to 'Show', group %>
+  <%= link_to 'Edit', edit_group_path(group) %>
+  <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>

@@ -10,7 +10,9 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
-    @group = Group.find(params[:group_id])
-    @user  = User.find(params[:user_id])
+    @membership = Membership.find(params[:id])
+    @group = @membership.group
+
+    @membership.destroy
   end
 end

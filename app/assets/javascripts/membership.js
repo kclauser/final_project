@@ -26,7 +26,23 @@ $(function()
       }
   });
 
-  $(".member").on("click",function(e){
-    $.ajax('')
-  })
+  // The reason we have to put the click handler on the main
+  // is that we replace the entire group in ajax and thus
+  // the newly inserted .delete-membership elements wouldn't
+  // have the hander. By putting the handler on the parent
+  // and then scoping the class inside the click, we don't
+  // have to worry about this.
+  $(".main").on("click", ".delete-membership", function(event) {
+    // Get the membership id
+    var membership_id = $(this).data("membership-id");
+
+    // TODO: do we want some kind of confirmation?
+
+    // Request a delete of this membership
+    $.ajax('/memberships/' + membership_id,
+      {
+        type: "POST",
+        data: { _method: "DELETE" }
+      });
+  });
 })

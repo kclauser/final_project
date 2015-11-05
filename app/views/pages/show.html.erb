@@ -24,7 +24,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+            <li><%= link_to 'Groups', groups_path %></li>
             <li><%= link_to 'Calendar', calendars_index_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -49,7 +49,7 @@
         <!-- <div class='col-xs-6 col-md-3 col-centered'> -->
           <p>This app was built to bring people together. By bridging the the gaps in timezones and geopgraphy, this app allows you to focus on what really matters, keeping in touch with your friends and having fun.</p>
         </div>
-        <p class="sign-in-button"><%= link_to "Sign in now", signin_path, class: "btn btn-primary center-block" %></p>
+        <!-- <p class="sign-in-button"><%= link_to "Sign in now", signin_path, class: "btn btn-primary center-block" %></p> -->
       </div>
 
   </body>
