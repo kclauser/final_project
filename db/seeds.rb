@@ -10,3 +10,39 @@
 # Create a few groups
 # Create a few users
 # Put some of the users in some of the groups
+
+Group.create(name: "TIY Gamers")
+Group.create(name: "The Group With the Really Long Name")
+Group.create(name: "The Red Shirts")
+Group.create(name: "One last group name")
+
+User.create(name: "Billy Bananas")
+User.create(name: "Jon Snow")
+User.create(name: "Robert Paulson")
+User.create(name: "Buzz Lightyear")
+User.create(name: "John Cena")
+User.create(name: "Sarah Sobczak")
+
+virgil = User.create(name: "Virgil Diaz")
+virgil.memberships.create(group_id: 1)
+
+
+brandon = User.create(name: "Brandon Fitch")
+brandon.memberships.create(group_id: 1)
+
+
+luke = User.create(name: "Luke Diaz")
+luke.memberships.create(group_id: 1)
+
+
+kanye = User.create(name: "Kanye West")
+kanye.memberships.create(group_id: 3)
+
+ron = User.create(name: "Ron Swanson")
+ron.memberships.create(group_id: 3)
+
+paul = User.create(name: "Paul Walker")
+paul.memberships.create(group_id: 3)
+
+ron = User.create(name: "Ron Weasley")
+ron.memberships.create(group_id: 3)

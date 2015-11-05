@@ -29,7 +29,8 @@
   border: 1px;
   border-style: solid;
   margin-bottom: 50px;
-  height: 256px;
+  height: 300px;
+  overflow: auto;
 }
 
 .group-image{
@@ -38,4 +39,11 @@
 
 .group-name-display{
   font-size: 4em;
+}
+
+.friendlist{
+  border: 1px;
+  border-style: solid;
+  // position:relative;
+  // top: -1075px;
 }

@@ -32,10 +32,13 @@
 
 <%= render @groups %>
 
-<ul class="friendlist">
-  <% User.all.each do |user| %>
-    <li data-user-id="<%= user.id %>"><%= user.name %></li>
-  <% end %>
-</ul>
+<div class="sidebar col-md-4 friendlist">
+  <h2> Friends list</h2>
+  <ul>
+    <% User.all.each do |user| %>
+      <li data-user-id="<%= user.id %>"><%= user.name %></li>
+    <% end %>
+  </ul>
+</div>
 
 <br>
