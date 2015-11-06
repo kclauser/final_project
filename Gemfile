@@ -5,6 +5,7 @@ gem "omniauth"
 #Had to downgrade oauth to 1.3.1 to work with google
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem "omniauth-google-oauth2"
+
 #Use sqlite3 as the database for Active Record
 gem 'pg'
 
@@ -17,6 +18,9 @@ gem "refile-mini_magick"
 
 # rails gem for fullcalendar.io
 gem 'fullcalendar-rails'
+
+# google api for calendar events
+gem 'google-api-client'
 
 # depenancy for fullcalendar
 gem 'momentjs-rails'

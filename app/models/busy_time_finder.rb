@@ -3,8 +3,6 @@ require 'google/api_client/client_secrets'
 require 'google/api_client/auth/installed_app'
 require 'google/api_client/auth/storage'
 require 'google/api_client/auth/storages/file_store'
-require 'fileutils'
-require 'active_support/all'
 
 class BusyTimeFinder
   APPLICATION_NAME = 'Google Calendar API Ruby Quickstart'
@@ -54,9 +52,9 @@ class BusyTimeFinder
       api_method: service.freebusy.query,
       headers: { 'Content-Type' => 'application/json'},
       body: JSON.dump({
-                      items: @emails.map { |email| { "id" => email } }
-                      timeMin: start_time,
-                      timeMax: end_time,
+                      items: @emails.map { |email| { "id" => email } },
+                      timeMin: start_time.utc.iso8601,
+                      timeMax: end_time.utc.iso8601,
                       # timeMin: Time.now.utc.iso8601,
                       # timeMax: 30.days.from_now.utc.iso8601,
                     })
@@ -72,13 +70,13 @@ class BusyTimeFinder
     # Maybe more logic goes here, dunno yet
   end
 end
-
-# example usage -- some code like this will exist
-# on the action for the page that shows the available calendar
-@group = Group.find(1)
-
-emails_from_database = @group.users.pluck(:email)
-finder = BusyTimeFinder.new(emails_from_database)
-@busy_times = finder.busy_times
-@free_times = finder.free_times
-# Mark either busy or free times on our html calendar
+#
+# # example usage -- some code like this will exist
+# # on the action for the page that shows the available calendar
+# @group = Group.find(1)
+#
+# emails_from_database = @group.users.pluck(:email)
+# finder = BusyTimeFinder.new(emails_from_database)
+# @busy_times = finder.busy_times
+# @free_times = finder.free_times
+# # Mark either busy or free times on our html calendar

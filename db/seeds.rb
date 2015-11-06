@@ -22,6 +22,7 @@ User.create(name: "Robert Paulson")
 User.create(name: "Buzz Lightyear")
 User.create(name: "John Cena")
 User.create(name: "Sarah Sobczak")
+User.create(name: "Gavin Stark", email: "gavin@theironyard.com")
 
 virgil = User.create(name: "Virgil Diaz")
 virgil.memberships.create(group_id: 1)
