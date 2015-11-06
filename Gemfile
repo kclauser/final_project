@@ -11,6 +11,16 @@ gem 'pg'
 #Enviroment
 gem 'dotenv-rails'
 
+#Handles image upload for group images
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+
+# rails gem for fullcalendar.io
+gem 'fullcalendar-rails'
+
+# depenancy for fullcalendar
+gem 'momentjs-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
