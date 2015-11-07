@@ -1,5 +1,6 @@
 <div class="group-image">
-  <%= image_tag('ihavenoidea.jpg') %>
+  <%= image_tag attachment_url(group, :group_image), width: 50 %>
+
 </div>
 <div class="panel-heading">
   <h2 class="group-name-display"><%= link_to group.name, group_path(group) %></h2>

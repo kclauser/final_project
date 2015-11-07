@@ -1,0 +1,39 @@
+body {
+  background-color: white;
+  // background-color: rgb(227, 231, 233);
+}
+
+#calendar {
+  background-color: rgba(255, 255, 255, .9);
+  width: 100%;
+}
+
+.container{
+  // border-style: 3px solid black;
+}
+
+.fc-day{
+  // background-color: rgb(229, 229, 229);
+  background-color: white;
+}
+
+.fc-toolbar {
+  // background-color: rgba(112, 220, 246, .4);
+  padding: 15px 5px 20px 10px;
+  margin-top: 50px;
+  border-bottom: 2px solid black;
+}
+
+.fc-content {
+  background-color: rgb(54, 145, 175);
+  color: white;
+  font-size: 12px;
+}
+
+.fc-today.fc-state-highlight{
+  background-color: rgb(217, 242, 249);
+}
+
+tr {
+  font-size: 18px;
+}
