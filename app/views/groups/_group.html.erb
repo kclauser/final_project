@@ -1,23 +1,30 @@
-<div class="group-image">
-  <%= image_tag attachment_url(group, :group_image), width: 50 %>
+<div class="container-fluid">
 
-</div>
-<div class="panel-heading">
-  <h2 class="group-name-display"><%= link_to group.name, group_path(group) %></h2>
-</div>
-<div class="panel-body">
-  <p>Members</p>
-  <ul>
-    <% group.memberships.each do |membership| %>
-    <li>
-      <span class="fa fa-times delete-membership" data-membership-id="<%= membership.id %>"></span>
-      <%= membership.user.name %>
-    </li>
-    <% end %>
-  </ul>
+  <div class="row-fluid">
+    <div class="panel-heading">
+      <h2 class="col-md-9 group-name-display">
+        <%= link_to group.name, group_path(group) %>
+      </h2>
+    </div>
+    <div class="col-md-1 group-image">
+      <%= image_tag attachment_url(group, :group_image), width: 50 %>
+    </div>
+  </div>
 
-  <%= link_to 'NEW EVENT', calendars_path(group_id: group.id) %>
-  <%= link_to 'Show', group %>
-  <%= link_to 'Edit', edit_group_path(group) %>
-  <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <div class="panel-body">
+    <p>Members</p>
+    <ul>
+      <% group.memberships.each do |membership| %>
+      <li>
+        <span class="fa fa-times delete-membership" data-membership-id="<%= membership.id %>"></span>
+        <%= membership.user.name %>
+      </li>
+      <% end %>
+    </ul>
+
+    <%= link_to 'NEW EVENT', calendars_path(group_id: group.id) %>
+    <%= link_to 'Show', group %>
+    <%= link_to 'Edit', edit_group_path(group) %>
+    <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
 </div>
