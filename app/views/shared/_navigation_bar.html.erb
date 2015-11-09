@@ -13,10 +13,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Groups', groups_path %></li>
+        <%= yield :nav_links %>
         <!-- <li><%= link_to 'Calendar', calendars_index_path %></li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <%= yield :nav_links_right %>
         <li>
           <% if current_user %>
           <%= link_to 'Log Out', signout_path, method: :delete, data: { confirm: "Are you sure?" } %>
