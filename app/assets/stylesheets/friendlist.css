@@ -1,0 +1,17 @@
+.friendlist {
+  .list-group-item {
+    cursor: pointer;
+
+  }
+
+  .list-group-item:hover {
+    background: $grey;
+    color: white;
+  }
+}
+
+/*.sidebar {
+  position: fixed;
+  right: 80px;
+  top: 161px;
+}*/

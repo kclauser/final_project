@@ -34,5 +34,9 @@
   display: block;
 }
 
+@import "colors";
 @import "groups";
-@import "calendar"
+@import "calendar";
+@import "btn-file";
+@import "friendlist";
+@import "breadcrumbs";

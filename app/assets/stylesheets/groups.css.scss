@@ -1,17 +1,11 @@
-.delete-membership {
-  cursor: pointer;
-}
 
 .groups-title{
-  font-size: 3em;
+  font-size: 5em;
   text-align: center;
 }
 
 .group-container{
-  // border: 1px;
-  // border-style: solid;
   margin-bottom: 50px;
-  // height: 300px;
   overflow: auto;
 }
 
@@ -23,12 +17,81 @@
   font-size: 4em;
 }
 
-.panel-body{
-  float: left;
-  border: 2px solid red;
-  width: 100%;
+
+.group-members-title{
+  font-size:2em;
 }
 
-li {
-  style: none;
+.group-members {
+  display:inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  padding: 6px;
+  background: $grey;
+  color: white;
+
+  .delete-membership {
+    cursor: pointer;
+    margin-right: 8px;
+  }
+
+  img {
+    margin-right: 4px;
+  }
+}
+
+.panel-friends {
+  .panel-heading {
+    background-color: $darkgrey;
+    color: white;
+  }
+}
+
+
+.group-container {
+  border-width: 0px;
+
+  .panel-heading {
+    border: 3px solid $darkgrey;
+    background: $darkgrey;
+    height: 100px;
+
+    a {
+      color: white;
+      vertical-align: middle;
+      font-size: 3em;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    img {
+      border: 2px solid white;
+    }
+  }
+
+  .panel-body {
+    border-left:   4px solid $darkgrey;
+    border-right:  4px solid $darkgrey;
+    border-bottom: 4px solid $darkgrey;
+  }
+}
+
+.delete-group {
+  font-size: 2em;
+  color: black;
+}
+
+.group-upload-image-form {
+  input: {
+    font-size: 2em;
+  }
+}
+
+.panel-default > .panel-heading .badge.group-badge {
+  font-size: 1.5em;
+  margin-right: 10px;
+  background: $lightblue;
 }
