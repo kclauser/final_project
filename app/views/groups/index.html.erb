@@ -1,31 +1,77 @@
 <p id="notice"><%= notice %></p>
 
-  <%= link_to 'New Group', new_group_path %><h1 class="groups-title">Groups Dashboard</h1>
+<%= content_for :nav_links_right do %>
+  <li>
+    <a>
+      <button data-toggle="modal" data-target="#create-group" class="btn btn-success">
+        Create Group
+      </button>
+    </a>
+  </li>
+<% end %>
 
 
-
-  <div class="container">
-    <div class="row">
-      <div class="main col-xs-10">
-        <% @groups.each do |group| %>
-          <div class="panel panel-default col-centered group-container" data-group-id="<%= group.id %>">
-            <%= render group %>
-          </div>
-        <% end %>
-      </div>
-
-        <div class="sidebar col-xs-2">
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Friends</h3>
-            </div>
-            <ul class="list-group friendlist">
-              <% User.all.each do |user| %>
-              <li class="list-group-item" data-user-id="<%= user.id %>"><%= user.name %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <ol class="breadcrumb app-breadcrumb">
+        <li><%= link_to "Home", groups_path %></li>
+        <li><%= link_to "Groups", groups_path, class: "active" %></li>
+      </ol>
     </div>
   </div>
+
+  <div class="row">
+    <div class="main col-xs-10">
+      <% @groups.each do |group| %>
+        <div class="panel panel-default col-centered group-container" data-group-id="<%= group.id %>">
+          <%= render group %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="sidebar col-xs-2">
+      <div class="panel panel-info panel-friends">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Friends
+          </h3>
+        </div>
+        <ul class="list-group friendlist">
+          <% User.all.each do |user| %>
+          <li class="list-group-item" data-user-id="<%= user.id %>">
+            <%= user.name %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="create-group" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_for(@group) do |f| %>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Create Group</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.text_field :name, class: "form-control", placeholder: "Name" %><br>
+          </div>
+          <span class="btn btn-default btn-file">
+            Upload Image
+            <%= f.attachment_field :group_image %>
+          </span>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit class: "btn btn-primary" %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
