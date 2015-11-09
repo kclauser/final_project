@@ -1,6 +1,5 @@
 
-$(function()
-{
+$(document).on("page:change", function() {
   // Friends are draggable
   $(".friendlist li").draggable({revert: true});
 
