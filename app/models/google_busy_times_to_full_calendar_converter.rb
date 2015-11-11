@@ -12,10 +12,11 @@ class GoogleBusyTimesToFullCalendarConverter
         start_time = busy_hash["start"]
         end_time = busy_hash["end"]
 
+        # TODO: Show this in the local user's prefered timezone
         fullcalendar << {
           title: email,
-          start: start_time,
-          end: end_time
+          start: start_time.in_time_zone("America/New_York"),
+          end: end_time.in_time_zone("America/New_York")
         }
       end
     end

@@ -3,9 +3,9 @@ class SessionsController < ApplicationController
     self.current_user = User.from_omniauth(request.env['omniauth.auth'])
 
     if current_user
-      redirect_to root_path
+      redirect_to groups_path
     else
-      redirect_to signin_path
+      redirect_to root_path
     end
   end
 

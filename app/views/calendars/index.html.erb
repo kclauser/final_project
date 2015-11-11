@@ -1,20 +1,60 @@
-<div class="col-md-10 col-md-offset-1">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <ol class="breadcrumb app-breadcrumb">
+        <li><%= link_to "Home", groups_path %></li>
+        <li><%= link_to "Groups", groups_path %></li>
+				<li class="active">Calendar</li>
+      </ol>
+    </div>
+  </div>
 
+<div class="col-md-10 col-md-offset-1">
 	<div id='calendar'></div>
 </div>
-<script>$(document).ready(function() {
+<script>
+$(document).on("page:change", function() {
 
 	// page is now ready, initialize the calendar...
-
 	$('#calendar').fullCalendar({
+		dayClick: function(date, jsEvent, view) {
+			$('#myModal').modal('show');
+			return false;
+
+			// Show a modal filled with intormation about the group and the date selected
+			// Modal should have a button to "SCHEDULE" -- from there, send a text...
+			//   alert('Clicked on: ' + date.format());
+		},
+
 		eventSources: [
 			{
-				events: <%= raw @fullcalendar.to_json %>,
-				color: "black",
-				textColor: 'yellow'
+				events: <%= raw @fullcalendar.to_json %>
 			}
 		]
 		// put your options and callbacks here
-	})
+	});
+});
+</script>
 
-});</script>
+<!-- Modal -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="myModalLabel">Modal header</h3>
+			</div>
+
+			<div class="modal-body">
+				<p>One fine body…</p>
+			</div>
+
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				<button class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

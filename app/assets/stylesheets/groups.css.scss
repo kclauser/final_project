@@ -36,10 +36,16 @@
     margin-right: 8px;
   }
 
+  .delete-membership:hover{
+    color: red;
+  }
+
   img {
     margin-right: 4px;
   }
 }
+
+
 
 .panel-friends {
   .panel-heading {
@@ -69,6 +75,7 @@
 
     img {
       border: 2px solid white;
+      cursor: pointer;
     }
   }
 

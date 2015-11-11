@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default nav-background navbar-gamenight">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Calendar Hound", root_path, class: "navbar-brand" %>
+        <%= link_to "GameNight", root_path, class: "navbar-brand navbar-brand-gamenight" %>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -19,11 +19,13 @@
       <ul class="nav navbar-nav navbar-right">
         <%= yield :nav_links_right %>
         <li>
+          <button type="button" class="btn btn-default navbar-btn">
           <% if current_user %>
           <%= link_to 'Log Out', signout_path, method: :delete, data: { confirm: "Are you sure?" } %>
           <% else %>
           <%= link_to 'Login with Google', auth_path(provider: 'google_oauth2') %>
           <% end %>
+        </button>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->

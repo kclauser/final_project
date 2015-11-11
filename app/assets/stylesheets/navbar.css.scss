@@ -1,0 +1,20 @@
+.nav-background {
+  background-color: $darkgrey;
+}
+
+.navbar-default .navbar-brand-gamenight {
+  font-family: "Arcade";
+  font-size: 5.0em;
+  color: white;
+  position:absolute;
+  top: 50%;
+}
+
+.navbar-gamenight {
+  height: 100px;
+}
+
+.navbar-default .btn .btn-default .navbar-btn{
+  position:absolute;
+  bottom: 10%;
+}
