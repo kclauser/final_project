@@ -29,7 +29,7 @@ class BusyTimeFinder
     auth = storage.authorize
 
     if auth.nil? || (auth.expired? && auth.refresh_token.nil?)
-      app_info = Google::APIClient::ClientSecrets.new(web: { client_secret: ENV["GOOGLE_CLIENT_SECRET"], client_id: ENV["GOOGLE_CLIENT_ID"]) })
+      app_info = Google::APIClient::ClientSecrets.new(web: { client_secret: ENV["GOOGLE_CLIENT_SECRET"], client_id: ENV["GOOGLE_CLIENT_ID"] })
       flow = Google::APIClient::InstalledAppFlow.new({
         :client_id => app_info.client_id,
         :client_secret => app_info.client_secret,
