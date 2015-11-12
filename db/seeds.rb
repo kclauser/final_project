@@ -1,4 +1,4 @@
-Group.create(name: "TIY Game Group", group_image_id: "http://theironyard.com/images/home/tiy-logo.png")
+Group.create(name: "TIY Game Group", group_image: File.read("app/assets/images/tiy.png"))
 Group.create(name: "Work Buddies")
 Group.create(name: "FSU Crew")
 
