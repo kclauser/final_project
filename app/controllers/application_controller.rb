@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def ensure_current_user
     unless current_user
-      redirect_to signin_path
+      redirect_to root_path
     end
   end
 
