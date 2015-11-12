@@ -19,6 +19,9 @@ gem "refile-mini_magick"
 # rails gem for fullcalendar.io
 gem 'fullcalendar-rails'
 
+# Twilio provides API to send texts to users 
+gem 'twilio-ruby'
+
 # google api for calendar events
 gem 'google-api-client'
 

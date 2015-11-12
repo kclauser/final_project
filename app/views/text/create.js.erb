@@ -1,0 +1,5 @@
+$("#scheduleModal").modal('hide');
+
+var clicked_day = $("#clicked-day").data("date");
+
+$("#calendar td.fc-day[data-date='" + clicked_day + "']").append("<i class='fa fa-check'>Success!</i>");

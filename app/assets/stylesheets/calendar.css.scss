@@ -1,28 +1,21 @@
-body {
-  background-color: white;
-  // background-color: rgb(227, 231, 233);
-}
-
 #calendar {
   background-color: rgba(255, 255, 255, .9);
   width: 100%;
 }
 
-.calendar-center{
-
-}
-
-.container{
-  // border-style: 3px solid black;
-}
-
 .fc-day{
-  // background-color: rgb(229, 229, 229);
   background-color: white;
+
+  i {
+    padding-left: 15px;
+    padding-top: 28px;
+    color: green;
+    font-size: .8em;
+    overflow: hidden;
+  }
 }
 
 .fc-toolbar {
-  // background-color: rgba(112, 220, 246, .4);
   padding: 15px 5px 20px 10px;
   margin-top: 50px;
   border-bottom: 2px solid black;
@@ -40,4 +33,16 @@ body {
 
 tr {
   font-size: 18px;
+}
+
+.modal-body p {
+  font-size: 1.5em;
+}
+
+.inline {
+  display: inline;
+}
+
+#clicked-day{
+  color: $lightblue;
 }

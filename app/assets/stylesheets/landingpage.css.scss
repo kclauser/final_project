@@ -4,34 +4,87 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 @import "colors";
 @import "fonts";
-
 @import "navbar";
 
 body {
   background-color: #F1F5F7;
+  min-height: 100vh;
+
+  &.landing-page {
+    background-image: image-url('earth.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    to {
+        opacity: 0.66;
+    }
+}
+
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
+    animation: fade 10s normal forwards ease-in;
 }
 
 .landing-page-jumbotron {
-  margin: 0;
-  background-image: image-url('earth.jpg');
-  background-size: cover;
-  min-height: 500px;
+  flex: 1;
+  display: flex;
+  align-items: center;
   color: #FFFFFF;
 }
 
 .landing-page-title {
-}
-
-.landing-page-title p {
   font-family: "Arcade";
   font-color: #FFFFFF;
   text-align: center;
   font-size: 5em;
   width: 58%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 0 10px #000, 0 0 20px #fff;
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:focus {
+      text-decoration:none;
+    }
+
+    &:hover {
+      color: #ddf;
+      text-shadow: 0 0 20px #fff, 0 0 10px #000;
+
+    &:active {
+      text-decoration:none;
+    }
+    }
+  }
 }
 
 .landing-page-description {

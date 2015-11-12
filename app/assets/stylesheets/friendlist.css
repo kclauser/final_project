@@ -1,7 +1,9 @@
 .friendlist {
   .list-group-item {
     cursor: pointer;
-
+    height: 52px;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .list-group-item:hover {

@@ -13,12 +13,13 @@
 	<div id='calendar'></div>
 </div>
 <script>
-$(document).on("page:change", function() {
-
 	// page is now ready, initialize the calendar...
 	$('#calendar').fullCalendar({
 		dayClick: function(date, jsEvent, view) {
-			$('#myModal').modal('show');
+      $('#clicked-day').html(date.format());
+      $('#clicked-day').data('date', date.format());
+
+      $('#scheduleModal').modal('show');
 			return false;
 
 			// Show a modal filled with intormation about the group and the date selected
@@ -33,28 +34,48 @@ $(document).on("page:change", function() {
 		]
 		// put your options and callbacks here
 	});
-});
 </script>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h3 id="myModalLabel">Modal header</h3>
-			</div>
+<div id="scheduleModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Schedule Game Night</h3>
+      </div>
 
-			<div class="modal-body">
-				<p>One fine body…</p>
+      <div class="modal-body">
+        <p>Play a game on <span data-date="" id='clicked-day'></span></p>
+        <div class="row">
+          <div class="with col-md-2">
+            <p class="inline">With:
+          </div>
+            <div class="modal-group-members col-md-10">
+              <% @group.memberships.each do |membership| %>
+              <li class="group-members">
+                <%= image_tag membership.user.image, size: "32x32" %>
+                <%= membership.user.name %>
+              </li>
+              <% end %>
+            </p>
+          </div>
+        </div>
 			</div>
 
 			<div class="modal-footer">
-				<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-				<button class="btn btn-primary">Save changes</button>
+        <button class="btn btn-primary" id="schedule-event">Schedule Event</button>
+      	<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
 			</div>
 		</div>
 	</div>
 </div>
-</body>
-</html>
+
+<script>
+   $("#schedule-event").on("click", function()
+   {
+      $.ajax('/text', {
+        type: "post"
+      });
+   });
+</script>

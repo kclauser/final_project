@@ -1,25 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-
-  <li>
-    <a>
-      <button data-toggle="modal" data-target="#create-group" class="btn btn-success pull-right">
-        Create Group
-      </button>
-    </a>
-  </li>
-
-
-
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12">
-      <ol class="breadcrumb app-breadcrumb">
+    <div class="col-xs-10">
+      <ol class="breadcrumb app-breadcrumb pull-left">
         <li><%= link_to "Home", groups_path %></li>
         <li class="active">Groups</li>
+        <li><i class="fa fa-plus create-button" data-toggle="modal" data-target="#create-group"></i></li>
       </ol>
     </div>
   </div>
+
 
   <div class="row">
     <div class="main col-xs-10">

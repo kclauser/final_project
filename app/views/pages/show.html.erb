@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CalendarHound</title>
-    <%= stylesheet_link_tag 'landingpage', media: 'all' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <%= render 'shared/navigation_bar' %>
-
-    <div class="landing-page-jumbotron">
-      <div class="landing-page-title">
-        <p>gaming with your buddies just got easier</p>
-      </div>
+<head>
+  <title>GameNight</title>
+  <%= stylesheet_link_tag 'landingpage', media: 'all' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="landing-page">
+  <%= render 'shared/navigation_bar' %>
+  <div class="landing-page-jumbotron">
+    <div class="landing-page-title">
+      <%= link_to "Gaming with your buddies just got easier...", groups_path %>
     </div>
-      <div class="landing-page-description">
-        <!-- <div class='col-xs-6 col-md-3 col-centered'> -->
-          <p>This app was built to bring people together. By bridging the the gaps in timezones and geopgraphy, this app allows you to focus on what really matters, keeping in touch with your friends and having fun.</p>
-        </div>
-        <!-- <p class="sign-in-button"><%= link_to "Sign in now", signin_path, class: "btn btn-primary center-block" %></p> -->
-      </div>
+  </div>
 
-  </body>
+  <video autoplay loop poster="<%= image_url('stars.png') %>" id="bgvid">
+    <source src="<%= image_url('stars.webm') %>" type="video/webm">
+    <source src="<%= image_url('stars.mp4') %>" type="video/mp4">
+  </video>
+</body>
 </html>

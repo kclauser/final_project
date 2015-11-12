@@ -1,20 +1,37 @@
-.nav-background {
-  background-color: $darkgrey;
-}
-
-.navbar-default .navbar-brand-gamenight {
-  font-family: "Arcade";
-  font-size: 5.0em;
-  color: white;
-  position:absolute;
-  top: 50%;
-}
+$header-height: 100px;
 
 .navbar-gamenight {
-  height: 100px;
+  padding: 0 20px;
+  background-color: rgba($darkgrey, 0.5);
+  height: $header-height;
+  line-height: $header-height;
+  display: flex;
+  flex-direction: row;
+
+  a {
+    color: white;
+    text-shadow: 0 0 5px #000;
+
+    &:focus {
+      text-decoration:none;
+    }
+    
+    &:hover {
+      color: #ddf;
+      text-shadow: 0 0 15px #000;
+      text-decoration: none;
+    }
+
+    &:active {
+      text-decoration:none;
+    }
+  }
 }
 
-.navbar-default .btn .btn-default .navbar-btn{
-  position:absolute;
-  bottom: 10%;
+.navbar-brand-gamenight {
+  font-family: "Arcade";
+  font-size: 5em;
+  line-height: $header-height;
+  margin-top: 0.1em;
+  flex: 1;
 }
